@@ -2,14 +2,13 @@
 <head>
   <title> List of Cakes </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script type = 'text/javascript'>
-    #Getting cakes data using JQuery.getJSON 
+    <script>
+    #  Getting cakes data using JQuery.getJSON
     $(document).ready(function() {
       $.getJSON('/cakes.json', function(cakes) {
-        # var cakeList = "";
-        $.each(cakes, function(cake) {
-            cake.push("<li" + cake + "</li>");
-            
+        var cakeList = "";
+        cakes.foreach(function(cake) {
+            cakeList += "<li" + cake + "</li>";
         });
         $("#cake-list").html(cakeList);
         });
