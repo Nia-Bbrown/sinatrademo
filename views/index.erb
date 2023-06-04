@@ -1,23 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang = "en">
 <head>
   <title> List of Cakes </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script type = 'text/javascript'>
-    #Getting cakes data using JQuery.getJSON 
-    $(document).ready(function() {
-      $.getJSON('/cakes.json', function(cakes) {
-        # var cakeList = "";
-        $.each(cakes, function(cake) {
-            cake.push("<li" + cake + "</li>");
-            
+    <script type = "text/javascript">
+      $(document).ready(function() {
+        var items = [];
+        $.getJSON("/cakes.json", function(cakes) {
+          $.each(cakes, function(index, cake) {
+            items.push("<li>" + cake + "</li>");
+          });
+          $("#cake-list").html(items.join(""));
         });
-        $("#cake-list").html(cakeList);
-        });
-    });
+      });
+
+
   </script>
 </head>
 <body>
     <h1> Cake List</h1>
-    <ul id="cake-list"></ul>
+    <ol id="cake-list">
+      <p> Testing Testing </p>
+    </ol>
+    <script></script>
+
+  
 </body>
 </html>
